@@ -15,10 +15,10 @@ class BankUITest {
         bank.populateWithTestAccount();
         final Scanner input = new Scanner("0\n");
 
-        final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        final BankUI ui = new BankUI(bank, input, new PrintStream(bytes));
+        final ByteArrayOutputStream outputBytes = new ByteArrayOutputStream();
+        new BankUI(bank, input, new PrintStream(outputBytes)).runUntilDone();
 
-        assertEquals("", bytes.toString());
+        assertEquals(BankUI.HELP_MSG + BankUI.BYE, outputBytes.toString());
     }
 
 }

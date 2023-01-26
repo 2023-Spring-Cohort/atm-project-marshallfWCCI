@@ -21,6 +21,7 @@ public class BankUI {
     public static final String NEXT = "What would you like to do next?";
     public static final String CLOSING = "You are closing account: ";
     public static final String CLOSING_SUFFIX = "\nHere are your remaining accounts\n";
+    public static final String BYE = "Goodbye ... please come again!";
 
     public BankUI(Bank bank, Scanner input, PrintStream output) {
         this.bank = bank;
@@ -29,5 +30,7 @@ public class BankUI {
     }
 
     public void runUntilDone() {
+        output.print(HELP_MSG);
+        output.print(BYE);
     }
 }
