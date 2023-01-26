@@ -22,4 +22,9 @@ public class Bank {
     public void closeAccount(String id) {
         accounts.remove(id);
     }
+
+    public void populateWithTestAccount() {
+        openNewAccount(new Account("123-456", "Checking", 100));
+        openNewAccount(new Account("654-321", "Savings", 1000));
+    }
 }
