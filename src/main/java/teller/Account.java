@@ -15,7 +15,7 @@ public class Account {
 
     private final String accountNumber;
     private final String accountType;
-    private final double accountBalance;
+    private double accountBalance;
 
     public Account(String accountNumber, String accountType, double accountBalance) {
         this.accountNumber = accountNumber;
@@ -24,5 +24,6 @@ public class Account {
     }
 
     public void deposit(double amount) {
+        this.accountBalance = amount;
     }
 }

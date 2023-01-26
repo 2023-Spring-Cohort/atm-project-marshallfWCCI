@@ -24,4 +24,11 @@ class AccountTest {
     @Test void canDeposit() {
         new Account("1-2-3", "Checking", 0).deposit(0);
     }
+
+    @Test void depositWorks() {
+        Account checking = new Account("1-2-3", "Checking", 0);
+        checking.deposit(1);
+        assertEquals(1,checking.getAccountBalance());
+
+    }
 }
