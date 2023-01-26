@@ -20,4 +20,8 @@ class AccountTest {
     void getAccountBalance() {
         assertEquals(0f, (new Account("1-2-3", "Checking", 0).getAccountBalance()));
     }
+
+    @Test void canDeposit() {
+        new Account("1-2-3", "Checking", 0).deposit(0);
+    }
 }

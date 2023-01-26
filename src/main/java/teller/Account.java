@@ -22,4 +22,7 @@ public class Account {
         this.accountType = accountType;
         this.accountBalance = accountBalance;
     }
+
+    public void deposit(double amount) {
+    }
 }
