@@ -39,4 +39,10 @@ class AccountTest {
         checking.deposit(1);
         assertEquals(101, checking.getAccountBalance());
     }
+
+    @Test
+    void canWithdraw() {
+        new Account("1-2-3", "Checking", 0).withdraw(0);
+    }
+
 }

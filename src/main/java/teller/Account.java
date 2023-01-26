@@ -26,4 +26,7 @@ public class Account {
     public void deposit(double amount) {
         this.accountBalance += amount;
     }
+
+    public void withdraw(double amount) {
+    }
 }
