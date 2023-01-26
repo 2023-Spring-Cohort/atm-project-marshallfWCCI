@@ -21,14 +21,22 @@ class AccountTest {
         assertEquals(0f, (new Account("1-2-3", "Checking", 0).getAccountBalance()));
     }
 
-    @Test void canDeposit() {
+    @Test
+    void canDeposit() {
         new Account("1-2-3", "Checking", 0).deposit(0);
     }
 
-    @Test void depositWorks() {
+    @Test
+    void depositWorks() {
         Account checking = new Account("1-2-3", "Checking", 0);
         checking.deposit(1);
-        assertEquals(1,checking.getAccountBalance());
+        assertEquals(1, checking.getAccountBalance());
+    }
 
+    @Test
+    void depositAdds() {
+        Account checking = new Account("1-2-3", "Checking", 100);
+        checking.deposit(1);
+        assertEquals(101, checking.getAccountBalance());
     }
 }
