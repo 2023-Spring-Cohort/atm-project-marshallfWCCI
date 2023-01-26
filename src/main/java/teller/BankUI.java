@@ -12,6 +12,7 @@ public class BankUI {
     public static final String DEPOSIT = "You want to deposit\n";
     public static final String HERE_ARE_YOUR_ACCOUNTS = "Here are your accounts\n";
     public static final String ENTER_ACCOUNT = "Type the account number to choose an account to deposit to.\n";
+    public static final String ENTER_DEPOSIT_AMOUNT = "Enter the amount to deposit.\n";
     public static final String YOU_HAVE_SELECTED = "You have selected account: ";
     public static final String YOU_HAVE_SELECTED_SUFFIX = "\n";
     public static final String YOU_DEPOSITED = "You deposited: ";
@@ -31,10 +32,34 @@ public class BankUI {
 
     public void runUntilDone() {
         output.print(HERE_ARE_YOUR_ACCOUNTS);
+        displayAccounts();
+        int command = 0;
+        do {
+            output.print(HELP_MSG);
+            command = input.nextByte();
+            switch (command) {
+                case 1:
+                    output.print(DEPOSIT);
+                    output.print(HERE_ARE_YOUR_ACCOUNTS);
+                    displayAccounts();
+                    output.print(ENTER_ACCOUNT);
+                    final String accountNumber = input.next();
+                    output.print(YOU_HAVE_SELECTED + accountNumber + YOU_HAVE_SELECTED_SUFFIX);
+                    output.print(ENTER_DEPOSIT_AMOUNT);
+                    final double amt = input.nextDouble();
+                    bank.getAccount(accountNumber).deposit(amt);
+                    output.print(YOU_DEPOSITED + amt + YOU_DEPOSITED_SUFFIX);
+                    output.print(UPDATED_BALANCE + bank.getAccount(accountNumber).getAccountBalance() + UPDATED_BALANCE_SUFFIX);
+                    output.print(NEXT);
+            }
+        } while (command != 0);
+
+        output.print(BYE);
+    }
+
+    private void displayAccounts() {
         for (final Account account : bank.getAllAccounts()) {
             output.print("(" + account.getAccountNumber() + ") " + account.getAccountType() + " " + account.getAccountBalance() + "\n");
         }
-        output.print(HELP_MSG);
-        output.print(BYE);
     }
 }

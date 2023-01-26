@@ -13,9 +13,32 @@ class BankUITest {
     void testExit() {
         runScenario("0\n", //
                 BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
-                "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
-                "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
-                BankUI.HELP_MSG + BankUI.BYE);
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.HELP_MSG + BankUI.BYE);
+    }
+
+    @Test
+    void testDeposit() {
+        runScenario("1\n" + //
+                        Bank.TEST_ACCOUNT_NUMBER1 + "\n" + //
+                        500 + "\n" + //
+                        "0\n", //
+                BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.HELP_MSG + BankUI.DEPOSIT + //
+                        BankUI.HERE_ARE_YOUR_ACCOUNTS + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.ENTER_ACCOUNT + //
+                        BankUI.YOU_HAVE_SELECTED + Bank.TEST_ACCOUNT_NUMBER1 + BankUI.YOU_HAVE_SELECTED_SUFFIX + //
+                        BankUI.ENTER_DEPOSIT_AMOUNT + //
+                        BankUI.YOU_DEPOSITED + 500.0 + BankUI.YOU_DEPOSITED_SUFFIX + //
+                        BankUI.UPDATED_BALANCE + (Bank.TEST_ACCOUNT_BALANCE1 + 500) +  BankUI.UPDATED_BALANCE_SUFFIX + //
+                        BankUI.NEXT + //
+                        BankUI.HELP_MSG +  //
+                        BankUI.BYE);
     }
 
     private static void runScenario(String source, String expected) {
