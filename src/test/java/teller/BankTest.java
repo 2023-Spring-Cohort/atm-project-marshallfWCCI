@@ -22,6 +22,15 @@ public class BankTest {
        Bank bank = new Bank();
        Account account = new Account("123-456", "Checking", 0);
        bank.openNewAccount(account);
-       assertEquals(account, bank.getAccount("123-456"));
+       assertEquals(account, bank.getAccount(account.getAccountNumber()));
+    }
+
+    @Test
+    void closeAccount() {
+        Bank bank = new Bank();
+        Account account = new Account("123-456", "Checking", 0);
+        bank.openNewAccount(account);
+        bank.closeAccount(account.getAccountNumber());
+        assertEquals(null, bank.getAccount("123-456"));
     }
 }

@@ -1,6 +1,5 @@
 package teller;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,5 +17,9 @@ public class Bank {
 
     public Account getAccount(String id) {
         return accounts.get(id);
+    }
+
+    public void closeAccount(String id) {
+        accounts.remove(id);
     }
 }
