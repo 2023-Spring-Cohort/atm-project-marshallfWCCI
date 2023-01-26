@@ -58,7 +58,7 @@ public class BankUI {
                     final String accountNumber = input.next();
                     output.print(YOU_HAVE_SELECTED + accountNumber + YOU_HAVE_SELECTED_SUFFIX);
                     output.print(ENTER_DEPOSIT_AMOUNT);
-                    final double amt = input.nextDouble();
+                    final double amt = getAmt();
                     bank.getAccount(accountNumber).deposit(amt);
                     output.print(YOU_DEPOSITED + amt + YOU_DEPOSITED_SUFFIX);
                     output.print(UPDATED_BALANCE + bank.getAccount(accountNumber).getAccountBalance() + UPDATED_BALANCE_SUFFIX);
@@ -72,7 +72,7 @@ public class BankUI {
                     final String accountNumber = input.next();
                     output.print(YOU_HAVE_SELECTED + accountNumber + YOU_HAVE_SELECTED_SUFFIX);
                     output.print(ENTER_WITHDRAW_AMOUNT);
-                    final double amt = input.nextDouble();
+                    final double amt = getAmt();
                     bank.getAccount(accountNumber).withdraw(amt);
                     output.print(YOU_WITHDREW + amt + YOU_WITHDREW_SUFFIX);
                     output.print(UPDATED_BALANCE + bank.getAccount(accountNumber).getAccountBalance() + UPDATED_BALANCE_SUFFIX);
@@ -98,10 +98,15 @@ public class BankUI {
                 }
                 default:
                     output.print(UNEXPECTED_COMMAND);
+                    break;
             }
         } while (command != 0);
 
         output.print(BYE);
+    }
+
+    private double getAmt() {
+        return input.nextDouble();
     }
 
     private void displayAccounts() {
