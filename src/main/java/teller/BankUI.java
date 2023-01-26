@@ -39,7 +39,6 @@ public class BankUI {
     }
 
     public void runUntilDone() {
-        output.print(HERE_ARE_YOUR_ACCOUNTS);
         displayAccounts();
         int command = 0;
         do {
@@ -54,7 +53,6 @@ public class BankUI {
                     break;
                 case 1: {
                     output.print(DEPOSIT);
-                    output.print(HERE_ARE_YOUR_ACCOUNTS);
                     displayAccounts();
                     output.print(ENTER_ACCOUNT);
                     final String accountNumber = input.next();
@@ -69,7 +67,6 @@ public class BankUI {
                 }
                 case 2: {
                     output.print(WITHDRAW);
-                    output.print(HERE_ARE_YOUR_ACCOUNTS);
                     displayAccounts();
                     output.print(ENTER_ACCOUNT);
                     final String accountNumber = input.next();
@@ -83,21 +80,18 @@ public class BankUI {
                     break;
                 }
                 case 3: {
-                    output.print(HERE_ARE_YOUR_ACCOUNTS);
                     displayAccounts();
                     output.print(NEXT);
                     break;
                 }
                 case 4: {
                     output.print(CLOSE);
-                    output.print(HERE_ARE_YOUR_ACCOUNTS);
                     displayAccounts();
                     output.print(ENTER_ACCOUNT);
                     final String accountNumber = input.next();
                     output.print(YOU_HAVE_SELECTED + accountNumber + YOU_HAVE_SELECTED_SUFFIX);
                     bank.closeAccount(accountNumber);
                     output.print(YOU_CLOSED + accountNumber + YOU_CLOSED_SUFFIX);
-                    output.print(HERE_ARE_YOUR_ACCOUNTS);
                     displayAccounts();
                     output.print(NEXT);
                     break;
@@ -111,6 +105,7 @@ public class BankUI {
     }
 
     private void displayAccounts() {
+        output.print(HERE_ARE_YOUR_ACCOUNTS);
         for (final Account account : bank.getAllAccounts()) {
             output.print("(" + account.getAccountNumber() + ") " + account.getAccountType() + " " + account.getAccountBalance() + "\n");
         }
