@@ -9,4 +9,9 @@ public class BankTest {
             System.out.println(account);
         }
     }
+
+    @Test
+    void openNewAccount() {
+        new Bank().openNewAccount(new Account("123-456", "Checking", 0));
+    }
 }

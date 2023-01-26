@@ -7,4 +7,7 @@ public class Bank {
     Collection<Account> getAllAccounts() {
         return new ArrayList<>();
     }
+
+    public void openNewAccount(Account checking) {
+    }
 }
