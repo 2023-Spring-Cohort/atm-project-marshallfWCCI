@@ -9,6 +9,8 @@ public class BankUI {
     private final PrintStream output;
 
     public static final String HELP_MSG = "\n\nPress 1 to deposit\nPress 2 to withdrawal\nPress 3 to check balance\nPress 4 to close an account\nPress 0 to exit\n";
+    public static final String PLEASE_ENTER_A_NUMBER_RATHER_THAN = "Please enter a number rather than:";
+    public static final String PLEASE_ENTER_A_NUMBER_RATHER_THAN_SUFFIX = "\n";
     public static final String DEPOSIT = "You want to deposit\n";
     public static final String HERE_ARE_YOUR_ACCOUNTS = "Here are your accounts\n";
     public static final String ENTER_ACCOUNT = "Type the account number to choose an account to deposit to.\n";
@@ -35,8 +37,13 @@ public class BankUI {
         displayAccounts();
         int command = 0;
         do {
+
             output.print(HELP_MSG);
-            command = input.nextByte();
+            while (!input.hasNextInt()) {
+                output.print(PLEASE_ENTER_A_NUMBER_RATHER_THAN + input.next() + PLEASE_ENTER_A_NUMBER_RATHER_THAN_SUFFIX);
+            }
+
+            command = input.nextInt();
             switch (command) {
                 case 1:
                     output.print(DEPOSIT);
