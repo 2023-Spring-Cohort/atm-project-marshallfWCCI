@@ -45,4 +45,10 @@ class AccountTest {
         new Account("1-2-3", "Checking", 0).withdraw(0);
     }
 
+    @Test
+    void withdrawWorks() {
+        Account checking = new Account("1-2-3", "Checking", 100);
+        checking.withdraw(1);
+        assertEquals(99, checking.getAccountBalance());
+    }
 }
