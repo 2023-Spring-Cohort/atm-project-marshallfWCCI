@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Bank {
-    public static final String TEST_ACCOUNT_NUMBER1 = "123-456";
+    public static final String TEST_ACCOUNT_NUMBER1 = "654-321";
     public static final String TEST_ACCOUNT_TYPE1 = "Checking";
-    public static final int TEST_ACCOUNT_BALANCE1 = 100;
-    public static final String TEST_ACCOUNT_NUMBER2 = "654-321";
+    public static final double TEST_ACCOUNT_BALANCE1 = 100;
+    public static final String TEST_ACCOUNT_NUMBER2 = "123-456";
     public static final String TEST_ACCOUNT_TYPE2 = "Savings";
-    public static final int TEST_ACCOUNT_BALANCE2 = 1000;
+    public static final double TEST_ACCOUNT_BALANCE2 = 1000;
 
     final private Map<String, Account> accounts = new HashMap<>();
 

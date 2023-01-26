@@ -11,7 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class BankUITest {
     @Test
     void testExit() {
-        runScenario("0\n", BankUI.HELP_MSG + BankUI.BYE);
+        runScenario("0\n", //
+                BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
+                "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                BankUI.HELP_MSG + BankUI.BYE);
     }
 
     private static void runScenario(String source, String expected) {
