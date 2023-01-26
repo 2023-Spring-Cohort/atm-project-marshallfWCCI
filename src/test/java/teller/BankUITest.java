@@ -25,9 +25,9 @@ class BankUITest {
                 BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
                         "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
                         "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
-                BankUI.HELP_MSG +  //
-                BankUI.PLEASE_ENTER_A_NUMBER_RATHER_THAN + "Hello" + BankUI.PLEASE_ENTER_A_NUMBER_RATHER_THAN_SUFFIX + //
-                BankUI.BYE);
+                        BankUI.HELP_MSG +  //
+                        BankUI.PLEASE_ENTER_A_NUMBER_RATHER_THAN + "Hello" + BankUI.PLEASE_ENTER_A_NUMBER_RATHER_THAN_SUFFIX + //
+                        BankUI.BYE);
     }
 
     @Test
@@ -46,12 +46,13 @@ class BankUITest {
     void testDeposit() {
         runScenario("1\n" + //
                         Bank.TEST_ACCOUNT_NUMBER1 + "\n" + //
-                        500 + "\n" + //
+                        500.0 + "\n" + //
                         "0\n", //
                 BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
                         "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
                         "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
-                        BankUI.HELP_MSG + BankUI.DEPOSIT + //
+                        BankUI.HELP_MSG + //
+                        BankUI.DEPOSIT + //
                         BankUI.HERE_ARE_YOUR_ACCOUNTS + //
                         "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
                         "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
@@ -59,7 +60,31 @@ class BankUITest {
                         BankUI.YOU_HAVE_SELECTED + Bank.TEST_ACCOUNT_NUMBER1 + BankUI.YOU_HAVE_SELECTED_SUFFIX + //
                         BankUI.ENTER_DEPOSIT_AMOUNT + //
                         BankUI.YOU_DEPOSITED + 500.0 + BankUI.YOU_DEPOSITED_SUFFIX + //
-                        BankUI.UPDATED_BALANCE + (Bank.TEST_ACCOUNT_BALANCE1 + 500) +  BankUI.UPDATED_BALANCE_SUFFIX + //
+                        BankUI.UPDATED_BALANCE + (Bank.TEST_ACCOUNT_BALANCE1 + 500) + BankUI.UPDATED_BALANCE_SUFFIX + //
+                        BankUI.NEXT + //
+                        BankUI.HELP_MSG +  //
+                        BankUI.BYE);
+    }
+
+    @Test
+    void testWithdrawl() {
+        runScenario("2\n" + //
+                        Bank.TEST_ACCOUNT_NUMBER1 + "\n" + //
+                        500.0 + "\n" + //
+                        "0\n", //
+                BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.HELP_MSG + //
+                        BankUI.WITHDRAW + //
+                        BankUI.HERE_ARE_YOUR_ACCOUNTS + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.ENTER_ACCOUNT + //
+                        BankUI.YOU_HAVE_SELECTED + Bank.TEST_ACCOUNT_NUMBER1 + BankUI.YOU_HAVE_SELECTED_SUFFIX + //
+                        BankUI.ENTER_WITHDRAW_AMOUNT + //
+                        BankUI.YOU_WITHDREW + 500.0 + BankUI.YOU_WITHDREW_SUFFIX + //
+                        BankUI.UPDATED_BALANCE + (Bank.TEST_ACCOUNT_BALANCE1 - 500) + BankUI.UPDATED_BALANCE_SUFFIX + //
                         BankUI.NEXT + //
                         BankUI.HELP_MSG +  //
                         BankUI.BYE);
