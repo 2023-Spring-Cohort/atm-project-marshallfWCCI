@@ -5,6 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Bank {
+    public static final String TEST_ACCOUNT_NUMBER1 = "123-456";
+    public static final String TEST_ACCOUNT_TYPE1 = "Checking";
+    public static final int TEST_ACCOUNT_BALANCE1 = 100;
+    public static final String TEST_ACCOUNT_NUMBER2 = "654-321";
+    public static final String TEST_ACCOUNT_TYPE2 = "Savings";
+    public static final int TEST_ACCOUNT_BALANCE2 = 1000;
+
     final private Map<String, Account> accounts = new HashMap<>();
 
     Collection<Account> getAllAccounts() {
@@ -24,7 +31,7 @@ public class Bank {
     }
 
     public void populateWithTestAccount() {
-        openNewAccount(new Account("123-456", "Checking", 100));
-        openNewAccount(new Account("654-321", "Savings", 1000));
+        openNewAccount(new Account(TEST_ACCOUNT_NUMBER1, TEST_ACCOUNT_TYPE1, TEST_ACCOUNT_BALANCE1));
+        openNewAccount(new Account(TEST_ACCOUNT_NUMBER2, TEST_ACCOUNT_TYPE2, TEST_ACCOUNT_BALANCE2));
     }
 }
