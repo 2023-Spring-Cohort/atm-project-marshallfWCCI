@@ -82,6 +82,12 @@ public class BankUI {
                     output.print(NEXT);
                     break;
                 }
+                case 3: {
+                    output.print(HERE_ARE_YOUR_ACCOUNTS);
+                    displayAccounts();
+                    output.print(NEXT);
+                    break;
+                }
                 case 4: {
                     output.print(CLOSE);
                     output.print(HERE_ARE_YOUR_ACCOUNTS);

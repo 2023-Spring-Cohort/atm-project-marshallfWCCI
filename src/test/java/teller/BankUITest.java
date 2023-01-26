@@ -112,6 +112,22 @@ class BankUITest {
                         BankUI.HELP_MSG +  //
                         BankUI.BYE);
     }
+    @Test
+
+    void testShowBalances() {
+        runScenario("3\n" + //
+                        "0\n", //
+                BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.HELP_MSG +  //
+                        BankUI.HERE_ARE_YOUR_ACCOUNTS +  //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER1 + ") " + Bank.TEST_ACCOUNT_TYPE1 + " " + Bank.TEST_ACCOUNT_BALANCE1 + "\n" + //
+                        "(" + Bank.TEST_ACCOUNT_NUMBER2 + ") " + Bank.TEST_ACCOUNT_TYPE2 + " " + Bank.TEST_ACCOUNT_BALANCE2 + "\n" + //
+                        BankUI.NEXT + //
+                        BankUI.HELP_MSG +  //
+                        BankUI.BYE);
+    }
 
     private static void runScenario(String source, String expected) {
         final Bank bank = new Bank();
