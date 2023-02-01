@@ -15,7 +15,7 @@ public class BankUI {
     public static final String DEPOSIT = "You want to deposit\n";
     public static final String WITHDRAW  = "You want to withdraw\n";
     public static final String CLOSE  = "You would like to close an account\n";
-    public static final String HERE_ARE_YOUR_ACCOUNTS = "Here are your accounts\n";
+    public static final String HERE_ARE_YOUR_ACCOUNTS = "Here are all of your accounts\n";
     public static final String ENTER_ACCOUNT = "Type the account number to choose an account to deposit to.\n";
     public static final String ENTER_DEPOSIT_AMOUNT = "Enter the amount to deposit.\n";
     public static final String YOU_HAVE_SELECTED = "You have selected account: ";
