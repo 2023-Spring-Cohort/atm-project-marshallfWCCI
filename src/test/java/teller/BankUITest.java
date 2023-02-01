@@ -113,7 +113,6 @@ class BankUITest {
                         BankUI.BYE);
     }
     @Test
-
     void testShowBalances() {
         runScenario("3\n" + //
                         "0\n", //
@@ -129,15 +128,18 @@ class BankUITest {
                         BankUI.BYE);
     }
 
-    private static void runScenario(String source, String expected) {
+    private static void runScenario(final String userCommands, final String expectedOutput) {
         final Bank bank = new Bank();
         bank.populateWithTestAccount();
-        final Scanner input = new Scanner(source);
+
+        final Scanner input = new Scanner(userCommands);
 
         final ByteArrayOutputStream outputBytes = new ByteArrayOutputStream();
-        new BankUI(bank, input, new PrintStream(outputBytes)).runUntilDone();
+        final PrintStream output = new PrintStream(outputBytes);
 
-        assertEquals(expected, outputBytes.toString());
+        new BankUI(bank, input, output).runUntilDone();
+
+        assertEquals(expectedOutput, outputBytes.toString());
     }
 
 }

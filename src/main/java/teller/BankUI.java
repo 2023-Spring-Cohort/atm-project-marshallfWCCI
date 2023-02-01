@@ -53,13 +53,16 @@ public class BankUI {
                     break;
                 case 1: {
                     output.print(DEPOSIT);
+                    System.out.print(DEPOSIT);
+
                     displayAccounts();
                     output.print(ENTER_ACCOUNT);
                     final String accountNumber = input.next();
                     output.print(YOU_HAVE_SELECTED + accountNumber + YOU_HAVE_SELECTED_SUFFIX);
                     output.print(ENTER_DEPOSIT_AMOUNT);
                     final double amt = getAmt();
-                    bank.getAccount(accountNumber).deposit(amt);
+                    Account account = bank.getAccount(accountNumber);
+                    account.deposit(amt);
                     output.print(YOU_DEPOSITED + amt + YOU_DEPOSITED_SUFFIX);
                     output.print(UPDATED_BALANCE + bank.getAccount(accountNumber).getAccountBalance() + UPDATED_BALANCE_SUFFIX);
                     output.print(NEXT);
@@ -106,6 +109,9 @@ public class BankUI {
     }
 
     private double getAmt() {
+        while (!input.hasNextDouble()) {
+            output.println("Please enter an actual number instead of the nonsense " + input.next());
+        }
         return input.nextDouble();
     }
 

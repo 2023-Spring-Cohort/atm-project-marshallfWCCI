@@ -33,4 +33,27 @@ public class BankTest {
         bank.closeAccount(account.getAccountNumber());
         assertEquals(null, bank.getAccount("123-456"));
     }
+
+    @Test
+    void closeJustOneAccount() {
+        Bank bank = new Bank();
+        Account account1 = new Account("123-456", "Checking", 0);
+        Account account2 = new Account("456-123", "Checking", 0);
+        bank.openNewAccount(account1);
+        bank.openNewAccount(account2);
+        bank.closeAccount(account1.getAccountNumber());
+        assertEquals(account2, bank.getAccount(account2.getAccountNumber()));
+    }
+
+    @Test
+    void closeSecondAccount() {
+        Bank bank = new Bank();
+        Account account1 = new Account("123-456", "Checking", 0);
+        Account account2 = new Account("456-123", "Checking", 0);
+        bank.openNewAccount(account1);
+        bank.openNewAccount(account2);
+        bank.closeAccount(account2.getAccountNumber());
+        assertEquals(account1, bank.getAccount(account1.getAccountNumber()));
+    }
+
 }
