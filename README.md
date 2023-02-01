@@ -1,3 +1,5 @@
+# We will deliver this once a week.
+
 # Bank Teller
 
 ## Objective
