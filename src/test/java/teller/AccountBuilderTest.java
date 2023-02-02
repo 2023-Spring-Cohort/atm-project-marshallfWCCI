@@ -47,4 +47,14 @@ class AccountBuilderTest {
         assertEquals("special", account.getAccountType());
         assertEquals(1000.5, account.getAccountBalance());
     }
+    @Test public void testAnotherOrder() {
+        final Account account = new AccountBuilder() //
+                .withAccountNumber("555-5555") //
+                .withType("special") //
+                .withBalance(1000.5) //
+                .build();
+        assertEquals("555-5555", account.getAccountNumber());
+        assertEquals("special", account.getAccountType());
+        assertEquals(1000.5, account.getAccountBalance());
+    }
 }
