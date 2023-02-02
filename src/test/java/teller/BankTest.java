@@ -14,13 +14,16 @@ public class BankTest {
 
     @Test
     void openNewAccount() {
-        new Bank().openNewAccount(new Account("123-456", "Checking", 0));
+        new Bank().openNewAccount(new Account.Builder() //
+               .withAccountNumber("123-456") //
+                .withType("Checking") //
+                .build());
     }
 
     @Test
     void getAccount() {
        Bank bank = new Bank();
-       Account account = new Account("123-456", "Checking", 0);
+       Account account = new Account.Builder().withAccountNumber("123-456").withType("Checking").build();
        bank.openNewAccount(account);
        assertEquals(account, bank.getAccount(account.getAccountNumber()));
     }
@@ -28,7 +31,7 @@ public class BankTest {
     @Test
     void closeAccount() {
         Bank bank = new Bank();
-        Account account = new Account("123-456", "Checking", 0);
+        Account account = new Account.Builder().withAccountNumber("123-456").withType("Checking").build();
         bank.openNewAccount(account);
         bank.closeAccount(account.getAccountNumber());
         assertEquals(null, bank.getAccount("123-456"));
@@ -37,8 +40,8 @@ public class BankTest {
     @Test
     void closeJustOneAccount() {
         Bank bank = new Bank();
-        Account account1 = new Account("123-456", "Checking", 0);
-        Account account2 = new Account("456-123", "Checking", 0);
+        Account account1 = new Account.Builder().withAccountNumber("123-456").withType("Checking").build();
+        Account account2 = new Account.Builder().withAccountNumber("456-123").withType("Checking").build();
         bank.openNewAccount(account1);
         bank.openNewAccount(account2);
         bank.closeAccount(account1.getAccountNumber());
@@ -48,8 +51,8 @@ public class BankTest {
     @Test
     void closeSecondAccount() {
         Bank bank = new Bank();
-        Account account1 = new Account("123-456", "Checking", 0);
-        Account account2 = new Account("456-123", "Checking", 0);
+        Account account1 = new Account.Builder().withAccountNumber("123-456").withType("Checking").build();
+        Account account2 = new Account.Builder().withAccountNumber("456-123").withType("Checking").build();
         bank.openNewAccount(account1);
         bank.openNewAccount(account2);
         bank.closeAccount(account2.getAccountNumber());

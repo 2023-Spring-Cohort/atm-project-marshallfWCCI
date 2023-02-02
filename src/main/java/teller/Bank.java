@@ -31,7 +31,7 @@ public class Bank {
     }
 
     public void populateWithTestAccount() {
-        openNewAccount(new Account(TEST_ACCOUNT_NUMBER1, TEST_ACCOUNT_TYPE1, TEST_ACCOUNT_BALANCE1));
-        openNewAccount(new Account(TEST_ACCOUNT_NUMBER2, TEST_ACCOUNT_TYPE2, TEST_ACCOUNT_BALANCE2));
+        openNewAccount(new Account.Builder().withAccountNumber(TEST_ACCOUNT_NUMBER1).withType(TEST_ACCOUNT_TYPE1).withBalance(TEST_ACCOUNT_BALANCE1).build());
+        openNewAccount(new Account.Builder().withAccountNumber(TEST_ACCOUNT_NUMBER2).withType(TEST_ACCOUNT_TYPE2).withBalance(TEST_ACCOUNT_BALANCE2).build());
     }
 }
