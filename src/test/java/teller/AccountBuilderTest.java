@@ -25,4 +25,9 @@ class AccountBuilderTest {
         final Account account = builder.build();
         assertEquals("checking", account.getAccountType());
     }
+    @Test public void testSavings() {
+        final AccountBuilder builder = new AccountBuilder();
+        final Account account = builder.withType("savings").build();
+        assertEquals("savings", account.getAccountType());
+    }
 }
