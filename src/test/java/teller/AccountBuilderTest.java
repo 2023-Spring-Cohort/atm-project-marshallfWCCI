@@ -35,4 +35,16 @@ class AccountBuilderTest {
         final Account account = builder.withAccountNumber("555-1234").build();
         assertEquals("555-1234", account.getAccountNumber());
     }
+    @Test public void testBalance() {
+        final AccountBuilder builder = new AccountBuilder();
+        final Account account = builder.withBalance(500).build();
+        assertEquals(500, account.getAccountBalance());
+    }
+    @Test public void testAll() {
+        final AccountBuilder builder = new AccountBuilder();
+        final Account account = builder.withType("special").withAccountNumber("555-5555").withBalance(1000.5).build();
+        assertEquals("555-5555", account.getAccountNumber());
+        assertEquals("special", account.getAccountType());
+        assertEquals(1000.5, account.getAccountBalance());
+    }
 }
