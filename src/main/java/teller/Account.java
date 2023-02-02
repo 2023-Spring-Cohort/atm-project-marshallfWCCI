@@ -32,7 +32,7 @@ public class Account {
     }
 
     // Fluent interface for constructing Account instances
-    public static class AccountBuilder {
+    public static class Builder {
         private String type = "checking";
         private String accountNumber = "";
         private double balance = 0;
@@ -41,17 +41,17 @@ public class Account {
             return new Account(accountNumber, type, balance);
         }
 
-        public AccountBuilder withType(String type) {
+        public Builder withType(String type) {
             this.type = type;
             return this;
         }
 
-        public AccountBuilder withAccountNumber(String s) {
+        public Builder withAccountNumber(String s) {
             this.accountNumber = s;
             return this;
         }
 
-        public AccountBuilder withBalance(double balance) {
+        public Builder withBalance(double balance) {
             this.balance = balance;
             return this;
         }
