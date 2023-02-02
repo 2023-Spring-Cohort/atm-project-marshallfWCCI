@@ -10,4 +10,9 @@ class AccountBuilderTest {
         final Account account = builder.build();
     }
 
+    @Test public void testDefaultBalance() {
+        final AccountBuilder builder = new AccountBuilder();
+        final Account account = builder.build();
+        assertEquals(0, account.getAccountBalance());
+    }
 }
