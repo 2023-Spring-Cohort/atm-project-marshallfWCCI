@@ -20,4 +20,9 @@ class AccountBuilderTest {
         final Account account = builder.build();
         assertEquals("", account.getAccountNumber());
     }
+    @Test public void testDefaultType() {
+        final AccountBuilder builder = new AccountBuilder();
+        final Account account = builder.build();
+        assertEquals("checking", account.getAccountType());
+    }
 }
